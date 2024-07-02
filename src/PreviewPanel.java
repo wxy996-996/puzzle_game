@@ -15,7 +15,6 @@ public class PreviewPanel extends JPanel{
         setBorder(new TitledBorder("预览区"));
     }
 
-    @Override
     public void paint(Graphics g) {
         super.paint(g);
         try {

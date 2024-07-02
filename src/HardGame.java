@@ -36,7 +36,7 @@ public class HardGame extends JFrame{
         addActionListener();
         setLocationRelativeTo(null);
         setVisible(true);
-        setResizable(false);
+        setResizable(true);
     }
 
     public void addComponentNorth() {       //菜单面板，包含选项及游戏记录
@@ -185,13 +185,13 @@ public class HardGame extends JFrame{
             int clicked_button_x = clicked_button.getBounds().x;
             int clicked_button_y = clicked_button.getBounds().y;
             if(clicked_button_x == gray_button_x && clicked_button_y - gray_button_y == -image_height) {
-                swap("up");      //UP
+                swap("上");   
             } else if(clicked_button_x == gray_button_x && clicked_button_y - gray_button_y == image_height){
-                swap("down");      //DOWN
+                swap("下");     
             }else if(clicked_button_y == gray_button_y && clicked_button_x - gray_button_x == image_width){
-                swap("right");      //RIGHT
+                swap("右");     
             }else if(clicked_button_y == gray_button_y && clicked_button_x - gray_button_x == -image_height){
-                swap("left");      //LEFT
+                swap("左");     
             }else return;
             this.repaint();
             step_counts++;
@@ -200,7 +200,7 @@ public class HardGame extends JFrame{
                 gameTimer.stopRunning();
                 score = 100 - step_counts/10 - stopwatch/10;
                 score_label.setText("得分：" + score);
-                JOptionPane.showMessageDialog(null,"恭喜你，游戏胜利！",
+                JOptionPane.showMessageDialog(null,"游戏胜利",
                         "提示",JOptionPane.PLAIN_MESSAGE);
                 for(int i = 0; i < gamePanel.rank* gamePanel.rank - 1; i++) {
                     this.buttons[i].removeActionListener(this);
@@ -226,16 +226,16 @@ public class HardGame extends JFrame{
 
         //交换按钮
         public void swap(String direction) {
-            if("up".equals(direction)) {
+            if("上".equals(direction)) {
                 clicked_button.setLocation(clicked_button.getBounds().x,clicked_button.getBounds().y += image_height);
                 gray_button.setLocation(gray_button.getBounds().x,gray_button.getBounds().y -= image_height);
-            }else if("down".equals(direction)) {
+            }else if("下".equals(direction)) {
                 clicked_button.setLocation(clicked_button.getBounds().x,clicked_button.getBounds().y -= image_height);
                 gray_button.setLocation(gray_button.getBounds().x,gray_button.getBounds().y += image_height);
-            }else if("right".equals(direction)) {
+            }else if("右".equals(direction)) {
                 clicked_button.setLocation(clicked_button.getBounds().x -= image_width,clicked_button.getBounds().y);
                 gray_button.setLocation(gray_button.getBounds().x += image_width,gray_button.getBounds().y);
-            }else if("left".equals(direction)) {
+            }else if("左".equals(direction)) {
                 clicked_button.setLocation(clicked_button.getBounds().x += image_width,clicked_button.getBounds().y);
                 gray_button.setLocation(gray_button.getBounds().x -= image_width,gray_button.getBounds().y);
             }
@@ -299,7 +299,7 @@ public class HardGame extends JFrame{
                         sleep(1000);
                         stopwatch++;
                         if(stopwatch > 200){
-                            JOptionPane.showMessageDialog(null, "很遗憾，你没有完成！",
+                            JOptionPane.showMessageDialog(null, "游戏结束",
                                     "游戏结束",JOptionPane.PLAIN_MESSAGE);
                             stopRunning();
                             for(int i = 0; i < gamePanel.rank* gamePanel.rank - 1; i++) {

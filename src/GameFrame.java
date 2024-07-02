@@ -7,9 +7,6 @@ public class GameFrame extends JFrame {
     JButton easy_button;
     JButton normal_button;
     JButton hard_button;
-    JButton limit_button;
-    JButton top_button;
-    JButton rule_button;
     String user_name;
 
 
@@ -30,29 +27,16 @@ public class GameFrame extends JFrame {
         JPanel easy_panel = new JPanel();
         JPanel normal_panel = new JPanel();
         JPanel hard_panel = new JPanel();
-        JPanel limit_panel = new JPanel();
-        JPanel top_panel = new JPanel();
-        JPanel rule_panel = new JPanel();
 
         easy_button = new JButton("简单模式");
         normal_button = new JButton("普通模式");
         hard_button = new JButton("困难模式");
-        limit_button = new JButton("限时模式");
-        top_button = new JButton("历史排名");
-        rule_button = new JButton("游戏规则");
         easy_panel.add(easy_button);
         normal_panel.add(normal_button);
         hard_panel.add(hard_button);
-        limit_panel.add(limit_button);
-        top_panel.add(top_button);
-        rule_panel.add(rule_button);
-
         panel_bk.add(easy_panel);
         panel_bk.add(normal_panel);
         panel_bk.add(hard_panel);
-        panel_bk.add(limit_panel);
-        panel_bk.add(top_panel);
-        panel_bk.add(rule_panel);
         add(panel_bk);
     }
 
@@ -63,18 +47,6 @@ public class GameFrame extends JFrame {
         normal_button.addActionListener(e -> new NormalGame(this.user_name,false));
 
         hard_button.addActionListener(e -> new HardGame(this.user_name,false));
-
-        limit_button.addActionListener(e -> limit());
-        top_button.addActionListener(e -> {
-            try {
-                top();
-            } catch (IOException ioException) {
-                ioException.printStackTrace();
-            }
-        });
-        rule_button.addActionListener(e -> JOptionPane.showMessageDialog(this,
-                    "通过鼠标点击移动，图片复原时即为游戏胜利。",
-                "游戏规则",JOptionPane.PLAIN_MESSAGE));
     }
 
 
@@ -138,7 +110,6 @@ public class GameFrame extends JFrame {
         panel_bk.add(easy_panel);
         panel_bk.add(normal_panel);
         panel_bk.add(hard_panel);
-
         frame.add(panel_bk);
 
         frame.setLocationRelativeTo(null);

@@ -45,7 +45,7 @@ public class LoginFrame extends JFrame {
         userPassWord_field.setBounds(200,170,200,30);
         tip_label = new JLabel();
         tip_label.setVisible(false);
-        tip_label.setFont(new Font("",Font.PLAIN,30));
+        tip_label.setFont(new Font("",Font.BOLD,30));
 
         tip_label.setBounds(400,120,180,50);
         panel.add(tip_label);
@@ -61,7 +61,7 @@ public class LoginFrame extends JFrame {
     }
 
     private void addListener() {
-        login_button.addActionListener(e -> {       //登录按钮事件处理
+        login_button.addActionListener(e -> {   
             try {
 
                 username = userName_field.getText();

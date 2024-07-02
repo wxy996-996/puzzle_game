@@ -1,6 +1,6 @@
 public class MainClass {
     public static void main(String[] args) {
-        new LoginFrame("九宫格游戏");
+        new LoginFrame("拼图游戏");
 
     }
 }
