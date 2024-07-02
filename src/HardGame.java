@@ -39,7 +39,7 @@ public class HardGame extends JFrame{
         setResizable(true);
     }
 
-    public void addComponentNorth() {       //菜单面板，包含选项及游戏记录
+    public void addComponentNorth() {       
         topPanel = new HardGame.TopPanel();
         this.add(BorderLayout.NORTH,topPanel);
     }

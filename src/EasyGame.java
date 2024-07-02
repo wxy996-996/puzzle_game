@@ -41,12 +41,11 @@ public class EasyGame extends JFrame{
         setResizable(true);
     }
 
-    public void addComponentNorth() {       //菜单面板，包含选项及游戏记录
-        topPanel = new TopPanel();
+    public void addComponentNorth() {       
         this.add(BorderLayout.NORTH,topPanel);
     }
 
-    public void addComponentCenter() {     //主面板，包含拼图区域和浏览区域
+    public void addComponentCenter() {     
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(1,2));
         //创建拼图区和预览区
